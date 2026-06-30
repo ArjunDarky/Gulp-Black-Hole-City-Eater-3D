@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="vortexGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000"/>
+      <stop offset="40%" stop-color="#000"/>
+      <stop offset="60%" stop-color="#144b58"/>
+      <stop offset="85%" stop-color="#5fe0ff"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="hyperGlow">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Outer energetic swirl -->
+  <g filter="url(#hyperGlow)">
+    <circle cx="256" cy="256" r="230" fill="none" stroke="#5fe0ff" stroke-width="2" opacity="0.4">
+      <animate attributeName="r" values="220;240;220" dur="4s" repeatCount="indefinite" />
+    </circle>
+
+    <!-- Rotating particle arms -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0 256 256" to="360 256 256" dur="8s" repeatCount="indefinite" />
+      <path d="M256 50 Q380 50 420 256" stroke="#5fe0ff" stroke-width="15" fill="none" stroke-linecap="round" opacity="0.8" />
+      <path d="M256 462 Q132 462 92 256" stroke="#5fe0ff" stroke-width="15" fill="none" stroke-linecap="round" opacity="0.8" />
+    </g>
+
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="360 256 256" to="0 256 256" dur="12s" repeatCount="indefinite" />
+      <path d="M256 100 Q320 100 380 256" stroke="#9af4ff" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.6" />
+      <path d="M256 412 Q192 412 132 256" stroke="#9af4ff" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.6" />
+    </g>
+  </g>
+
+  <!-- Core Event Horizon -->
+  <circle cx="256" cy="256" r="180" fill="url(#vortexGrad)" />
+  <circle cx="256" cy="256" r="185" fill="none" stroke="#fff" stroke-width="4" opacity="0.4" filter="url(#hyperGlow)" />
+</svg>

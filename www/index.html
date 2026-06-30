@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#101413" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Gulp: Black Hole City Eater 3D" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="description" content="Control a hungry black hole in Gulp! Eat buildings, cars, and people to grow larger. Conquer 20 unique levels in this addictive 3D city destroyer game." />
+    <meta name="keywords" content="black hole game, eat everything, city destroyer, 3D io game, hole game, grow larger, saga adventure" />
+    <title>Gulp: Black Hole City Eater 3D</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <canvas id="game" aria-label="Gulp absorber game canvas"></canvas>
+
+      <!-- Loading splash -->
+      <div class="splash hidden" id="splash">
+        <div class="splash-inner">
+          <h1 class="title splash-title">GULP</h1>
+          <div class="splash-sub">BLACK HOLE CITY EATER 3D</div>
+          <div class="splash-tag"><span></span>DRAG THE VOID. EAT THE CITY. GROW HUGE.<span></span></div>
+        </div>
+        <div class="splash-bottom">
+          <div class="splash-loading">LOADING...</div>
+          <div class="splash-bar"><div class="splash-fill" id="splashFill"></div></div>
+          <div class="splash-pct" id="splashPct">0%</div>
+          <div class="splash-tip" id="splashTip"><b>TIP:</b> Use <span>power-ups</span> to grow faster and dominate the city!</div>
+        </div>
+      </div>
+
+      <section class="hud" aria-live="polite">
+        <div>
+          <span class="label">Level</span>
+          <strong id="levelName">Park</strong>
+        </div>
+        <div>
+          <span class="label"><span class="coin"></span>Score</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="size-card">
+          <span class="label">Size</span>
+          <strong id="size">1.0x</strong>
+          <span class="meter"><span id="sizeFill"></span></span>
+        </div>
+        <div>
+          <span class="label"><span class="clock"></span>Time</span>
+          <strong id="time">02:00</strong>
+        </div>
+      </section>
+
+      <section class="menu" id="menu">
+        <div class="menu-inner">
+          <div class="brand">
+            <img src="icon.svg" class="brand-icon" alt="" />
+            <h1 class="title">Gulp: Black Hole City Eater 3D</h1>
+          </div>
+          <p class="tagline">Drag the void. Eat anything smaller. Grow until the city has nowhere left to stand.</p>
+          <div class="level-panel">
+            <p class="level-title"><span class="ct">Conquer the World</span> <span class="total-wrap">Total <span id="totalScore">0</span></span></p>
+            <div class="map-view" id="mapView">
+              <div class="map-scroll" id="levelSelect">
+                <!-- Path and nodes will be generated here -->
+                <svg class="map-path-svg" id="mapPathSvg"></svg>
+              </div>
+            </div>
+          </div>
+          <button id="start" class="start-btn" type="button"><span class="start-hole"></span><span class="start-label">Start Level</span></button>
+          <div class="menu-foot">
+            <button class="audio-toggle" id="audioToggle" type="button" aria-label="Toggle sound">Sound On</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="rotate-hint" aria-hidden="true">
+        <span class="rotate-icon" aria-hidden="true"></span>
+        <span class="rotate-text">Rotate for more room</span>
+      </section>
+
+      <button class="back-button hidden" id="backButton" type="button" aria-label="Back to menu">‹ Menu</button>
+
+      <!-- Banner ad slot (menu + game-over only, never during play) -->
+      <div class="ad-banner hidden" id="adBanner" aria-hidden="true">
+        <span class="ad-badge">Ad</span>
+        <span class="ad-banner-text">Your banner ad · 320×50</span>
+      </div>
+
+      <!-- Full-screen ad overlay (interstitial + rewarded) -->
+      <div class="ad-overlay hidden" id="adOverlay" role="dialog" aria-live="polite">
+        <div class="ad-frame">
+          <span class="ad-badge">Ad</span>
+          <div class="ad-fake">
+            <span class="ad-fake-logo"></span>
+            <strong id="adTitle">Advertisement</strong>
+            <p id="adSub">Your AdMob ad will play here</p>
+          </div>
+          <button class="ad-close" id="adClose" type="button" disabled>Skip in 3</button>
+        </div>
+      </div>
+
+      <section class="game-over hidden" id="gameOver">
+        <p class="eyebrow">Run Complete</p>
+        <h2 id="finalScore">0</h2>
+        <p class="stars" id="stars">---</p>
+        <p id="rating">Keep feeding the void.</p>
+        <div class="reward-actions">
+          <button id="doubleScore" class="ad-btn hidden" type="button"><span class="ad-badge">AD</span> Watch Ad to Double Score</button>
+          <button id="extraTime" class="ad-btn hidden" type="button"><span class="ad-badge">AD</span> Watch Ad for +30s</button>
+        </div>
+        <div class="end-actions">
+          <button id="restart" type="button">Retry</button>
+          <button id="nextLevel" type="button">Next Level</button>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

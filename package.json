@@ -1,0 +1,26 @@
+{
+  "name": "gulp-absorber-mobile",
+  "version": "1.6.0",
+  "private": true,
+  "description": "Gulp: Black Hole City Eater 3D mobile game.",
+  "homepage": "https://play.google.com/store/apps/details?id=com.irozar.gulp",
+  "scripts": {
+    "build": "node scripts/build-mobile.js",
+    "start": "npx http-server . -p 5173 -c-1",
+    "check": "node --check main.js",
+    "cap:init": "npx cap init Gulp com.gulp.absorber --web-dir www",
+    "cap:add:android": "npm run build && npx cap add android",
+    "cap:sync": "npm run build && npx cap sync android",
+    "cap:open:android": "npx cap open android"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.4.1",
+    "@capacitor/core": "^8.4.1",
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "@capacitor-community/admob": "^8.0.0"
+  }
+}

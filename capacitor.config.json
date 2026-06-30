@@ -1,0 +1,18 @@
+{
+  "appId": "com.irozar.gulp",
+  "appName": "Gulp: Black Hole City Eater 3D",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https",
+    "allowNavigation": [],
+    "cleartext": false
+  },
+  "backgroundColor": "#000000",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": true,
+      "launchShowDuration": 500,
+      "backgroundColor": "#000000"
+    }
+  }
+}

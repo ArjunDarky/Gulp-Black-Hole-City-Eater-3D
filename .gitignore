@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Android/Gradle build output
+android/.gradle/
+android/.kotlin/
+android/build/
+android/app/build/
+android/capacitor-cordova-android-plugins/build/
+android/capacitor-cordova-android-plugins/src/main/libs/
+
+# Local IDE/editor files
+.idea/
+.vscode/
+
+# Local Android configuration
+android/local.properties
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Packaged APK/AAB files should go in GitHub Releases, not normal commits
+*.apk
+*.aab
